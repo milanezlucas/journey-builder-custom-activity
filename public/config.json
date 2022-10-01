@@ -1,0 +1,82 @@
+{
+  "workflowApiVersion": "1.1",
+  "metaData": {
+    "icon": "images/whatsapp.png",
+    "iconSmall": "images/whatsapp.png",
+    "category": "message"
+  },
+  "type": "REST",
+  "lang": {
+    "en-US": {
+      "name": "Send Call Me",
+      "description": "Send request a call from CA team"
+    },
+    "pt-BR": {
+      "name": "Send Call Me",
+      "description": "Solicitação de ligação do time da Conta Azul"
+    }
+  },
+  "arguments": {
+    "execute": {
+      "inArguments": [
+        {
+          "name": "{{Contact.Attribute.CustomActivity.name}}",
+          "emailAddress": "{{Contact.Attribute.CustomActivity.EmailAddress}}",
+          "phoneNumber": "{{Contact.Attribute.CustomActivity.PhoneNumber}}"
+        }
+      ],
+      "outArguments": [],
+      "url": "https://journey-builder-callme.herokuapp.com/execute",
+      "verb": "POST",
+      "body": "",
+      "header": "",
+      "format": "json",
+      "useJwt": true,
+      "timeout": 10000
+    }
+  },
+  "configurationArguments": {
+    "applicationExtensionKey": "cfe26c59-0255-4a33-b36f-ef3d77dea770",
+    "save": {
+      "url": "https://journey-builder-callme.herokuapp.com/save",
+      "verb": "POST",
+      "useJwt": true
+    },
+    "publish": {
+      "url": "https://journey-builder-callme.herokuapp.com/publish",
+      "verb": "POST",
+      "useJwt": true
+    },
+    "validate": {
+      "url": "https://journey-builder-callme.herokuapp.com/validate",
+      "verb": "POST",
+      "useJwt": true
+    },
+    "stop": {
+      "url": "https://journey-builder-callme.herokuapp.com/stop",
+      "verb": "POST",
+      "useJwt": true
+    }
+  },
+  "wizardSteps": [
+    {
+      "label": "Configure Call Me Origin",
+      "key": "step1"
+    }
+  ],
+  "userInterfaces": {
+    "configModal": {
+      "height": 200,
+      "width": 300,
+      "fullscreen": true
+    }
+  },
+  "schema": {
+    "arguments": {
+      "execute": {
+        "inArguments": [],
+        "outArguments": []
+      }
+    }
+  }
+}
