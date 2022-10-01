@@ -8,19 +8,25 @@
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "Send Whatsapp HSM DEV",
-      "description": "HSM template submission via WhatsApp."
+      "name": "Send Call Me",
+      "description": "Send request a call from CA team"
     },
     "pt-BR": {
-      "name": "Send Whatsapp HSM DEV",
-      "description": "Envio de template HSM via WhatsApp."
+      "name": "Send Call Me",
+      "description": "Solicitação de ligação do time da Conta Azul"
     }
   },
   "arguments": {
     "execute": {
-      "inArguments": [],
+      "inArguments": [
+        {
+          "name": "{{Contact.Attribute.CustomActivity.name}}",
+          "emailAddress": "{{Contact.Attribute.CustomActivity.EmailAddress}}",
+          "phoneNumber": "{{Contact.Attribute.CustomActivity.PhoneNumber}}"
+        }
+      ],
       "outArguments": [],
-      "url": "https://journey-salesforce.herokuapp.com/journeybuilder/execute",
+      "url": "https://journey-builder-callme.herokuapp.com/execute",
       "verb": "POST",
       "body": "",
       "header": "",
@@ -30,31 +36,31 @@
     }
   },
   "configurationArguments": {
-    "applicationExtensionKey": "045ae7c7-daf3-467c-b57d-7d0fe3634ce2",
+    "applicationExtensionKey": "cfe26c59-0255-4a33-b36f-ef3d77dea770",
     "save": {
-      "url": "https://journey-salesforce.herokuapp.com/journeybuilder/save",
+      "url": "https://journey-builder-callme.herokuapp.com/save",
       "verb": "POST",
       "useJwt": true
     },
     "publish": {
-      "url": "https://journey-salesforce.herokuapp.com/journeybuilder/publish",
+      "url": "https://journey-builder-callme.herokuapp.com/publish",
       "verb": "POST",
       "useJwt": true
     },
     "validate": {
-      "url": "https://journey-salesforce.herokuapp.com/journeybuilder/validate",
+      "url": "https://journey-builder-callme.herokuapp.com/validate",
       "verb": "POST",
       "useJwt": true
     },
     "stop": {
-      "url": "https://journey-salesforce.herokuapp.com/journeybuilder/stop",
+      "url": "https://journey-builder-callme.herokuapp.com/stop",
       "verb": "POST",
       "useJwt": true
     }
   },
   "wizardSteps": [
     {
-      "label": "Configure HSM Template",
+      "label": "Configure Call Me Origin",
       "key": "step1"
     }
   ],

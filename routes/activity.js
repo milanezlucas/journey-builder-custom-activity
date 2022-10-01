@@ -74,56 +74,31 @@ exports.execute = function (req, res) {
             // console.log('inArguments', JSON.stringify(decoded.inArguments));
             // console.log('decodedArgs', JSON.stringify(decodedArgs));
 
-            const templateName = decodedArgs['templateName'];
-            const phoneNumber = decodedArgs['phoneNumber'];
-            const parameters = decodedArgs['parameters'];
-            const account = decodedArgs['account'];
+            const callme = decodedArgs['callMeOrigin'];
+            const phone = decodedArgs['phoneNumber'];
+            const name = decodedArgs['name'];
+            const email = decodedArgs['emailAddress'];
 
-            console.log('templateName', templateName);
-            console.log('phoneNumber', phoneNumber);
-            console.log('parameters', parameters);
-            console.log('account', account);
+            console.log('callme', callme);
+            console.log('phone', phone);
+            console.log('name', name);
+            console.log('email', email);
 
             const headers = {
-                'Content-Type': 'application/json',
-                'Authorization': `Key ${process.env.BLIPAUTHORIZATIONKEY}`
+                'Content-Type': 'application/json'
             }
 
-            const guid_id = uuidv4();
-
             const post_save = {
-                "id": guid_id,
-                "to": "postmaster@wa.gw.msging.net",
-                "method": "get",
-                "uri": `lime://wa.gw.msging.net/accounts/+${phoneNumber}`
+                "name": name,
+                "email": email,
+                "phone": phone,
+                "callme": callme
             }
 
             axios.post('https://msging.net/commands', post_save, { headers: headers }).then((res) => {
-                const post_hsm = {
-                    "id": guid_id,
-                    "to": `${phoneNumber}@wa.gw.msging.net`,
-                    "type": "application/json",
-                    "content": {
-                        "type": "hsm",
-                        "hsm": {
-                            "namespace": "0cf88f37_b88f_d3bd_b5be_f22588aabf89",
-                            "element_name": templateName,
-                            "language": {
-                                "policy": "deterministic",
-                                "code": "pt_BR"
-                            },
-                            "localizable_params": parameters.map(x => { return { 'default': x } })
-                        }
-                    }
-                }
-
-                axios.post('https://msging.net/messages', post_hsm, { headers: headers }).then((res) => {
-                    console.log(`Success send whatsapp to ${phoneNumber}`);
-                }).catch((err) => {
-                    console.error(`ERROR send whatsapp to ${phoneNumber}: ${err}`)
-                })
+                console.log(`Success send call me to ${phone}`);
             }).catch((err) => {
-                console.error(`ERROR verify whatsapp to ${phoneNumber}: ${err}`)
+                console.error(`ERROR verify call me to ${phone}: ${err}`)
             })
 
             res.send(200, 'Execute');
@@ -145,10 +120,3 @@ exports.validate = function (req, res) {
     // logData(req);
     res.send(200, 'Validate');
 };
-
-function uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-    });
-}

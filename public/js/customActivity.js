@@ -8,10 +8,7 @@ define(function (require) {
     var authTokens = {};
 
     var eventDefinitionKey = null;
-    var templateCode = null;
-    var phoneFieldName = null;
-    var parameterList = null;
-    var whatsappAccount = null;
+    var callMeOrigin = null;
 
     $(window).ready(onRender);
 
@@ -76,17 +73,8 @@ define(function (require) {
             evt.preventDefault();
 
             if (validate()) {
-                document.getElementById('templateCode').disabled = true;
-                templateCode = $('#templateCode').val();
-
-                document.getElementById('phoneFieldName').disabled = true;
-                phoneFieldName = $('#phoneFieldName').val();
-
-                document.getElementById('parameterList').disabled = true;
-                parameterList = $('#parameterList').val();
-
-                document.getElementById('whatsappAccount').disabled = true;
-                whatsappAccount = $('#whatsappAccount').val();
+                document.getElementById('callMeOrigin').disabled = true;
+                callMeOrigin = $('#callMeOrigin').val();
 
                 document.getElementById('toggleActive').disabled = true;
                 document.getElementById('toggleActive').innerHTML = "Ativado";
@@ -99,20 +87,11 @@ define(function (require) {
             payload = data;
         }
 
-        templateCode = payload['arguments'].templateCode;
+        callMeOrigin = payload['arguments'].callMeOrigin;
 
-        if (templateCode) {
-            document.getElementById('templateCode').disabled = true;
-            document.getElementById('templateCode').value = templateCode;
-
-            document.getElementById('phoneFieldName').disabled = true;
-            document.getElementById('phoneFieldName').value = templateCode;
-
-            document.getElementById('parameterList').disabled = true;
-            document.getElementById('parameterList').value = templateCode;
-
-            document.getElementById('whatsappAccount').disabled = true;
-            document.getElementById('whatsappAccount').value = templateCode;
+        if (callMeOrigin) {
+            document.getElementById('callMeOrigin').disabled = true;
+            document.getElementById('callMeOrigin').value = callMeOrigin;
 
             document.getElementById('toggleActive').disabled = true;
             document.getElementById('toggleActive').innerHTML = "Ativado";
@@ -143,11 +122,9 @@ define(function (require) {
 
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
-            "templateName": templateCode,
-            "contactIdentifier": "{{Contact.Key}}",
-            "phoneNumber": `{{Event.${eventDefinitionKey}.\"${phoneFieldName}\"}}`,
-            "parameters": parameters,
-            "account": whatsappAccount
+            "callMeOrigin": callMeOrigin,
+            "contactIdentifier": "{{Contact.Key}}"
+            // "parameters": parameters,
         }];
 
         payload['metaData'].isConfigured = true;
