@@ -18,13 +18,7 @@
   },
   "arguments": {
     "execute": {
-      "inArguments": [
-        {
-          "name": "{{Contact.Attribute.CustomActivity.name}}",
-          "emailAddress": "{{Contact.Attribute.CustomActivity.EmailAddress}}",
-          "phoneNumber": "{{Contact.Attribute.CustomActivity.PhoneNumber}}"
-        }
-      ],
+      "inArguments": [],
       "outArguments": [],
       "url": "https://journey-builder-callme.herokuapp.com/execute",
       "verb": "POST",
