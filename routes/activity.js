@@ -95,10 +95,10 @@ exports.execute = function (req, res) {
                 "callme": callme
             }
 
-            axios.post('https://msging.net/commands', post_save, { headers: headers }).then((res) => {
+            axios.post('https://experimente.contaazul.com/webhook-callme/', post_save, { headers: headers }).then((res) => {
                 console.log(`Success send call me to ${phone}`);
             }).catch((err) => {
-                console.error(`ERROR verify call me to ${phone}: ${err}`)
+                console.error(`ERROR send call me to ${phone}: ${err}`)
             })
 
             res.send(200, 'Execute');
