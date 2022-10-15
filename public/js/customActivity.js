@@ -87,10 +87,9 @@ define(function (require) {
             payload = data;
         }
 
-        console.log('initialize', JSON.stringify(payload));
+        // console.log('initialize', JSON.stringify(payload));
         // callMeOrigin = payload['arguments'].callMeOrigin;
-        callMeOrigin = payload['arguments'].execute.inArguments['callMeOrigin'];
-        console.log('callMeOrigin', callMeOrigin);
+        callMeOrigin = payload.arguments.execute.inArguments[0].callMeOrigin;
 
         if (callMeOrigin) {
             document.getElementById('callMeOrigin').disabled = true;
