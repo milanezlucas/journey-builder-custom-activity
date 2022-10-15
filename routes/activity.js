@@ -75,9 +75,9 @@ exports.execute = function (req, res) {
             // console.log('decodedArgs', JSON.stringify(decodedArgs));
 
             const callme = decodedArgs['callMeOrigin'];
-            const phone = decodedArgs['phoneNumber'];
-            const name = decodedArgs['name'];
-            const email = decodedArgs['emailAddress'];
+            const phone = decodedArgs['telefone'];
+            const name = decodedArgs['nome'];
+            const email = decodedArgs['email'];
 
             console.log('callme', callme);
             console.log('phone', phone);
