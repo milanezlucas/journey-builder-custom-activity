@@ -117,14 +117,10 @@ define(function (require) {
     }
 
     function save() {
-        var parameters = parameterList.split(';');
-        parameters = parameters.map(parameterName => `{{Event.${eventDefinitionKey}.\"${parameterName}\"}}`);
-
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
             "contactIdentifier": "{{Contact.Key}}"
-            // "parameters": parameters,
         }];
 
         payload['metaData'].isConfigured = true;
