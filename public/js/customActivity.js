@@ -87,6 +87,7 @@ define(function (require) {
             payload = data;
         }
 
+        console.log('initialize', JSON.stringify(payload));
         // callMeOrigin = payload['arguments'].callMeOrigin;
         callMeOrigin = payload['arguments'].execute.inArguments.callMeOrigin;
 
