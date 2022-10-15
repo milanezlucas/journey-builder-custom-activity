@@ -88,7 +88,6 @@ define(function (require) {
         }
 
         // console.log('initialize', JSON.stringify(payload));
-        // callMeOrigin = payload['arguments'].callMeOrigin;
         callMeOrigin = payload.arguments.execute.inArguments[0].callMeOrigin;
 
         if (callMeOrigin) {
@@ -106,7 +105,7 @@ define(function (require) {
     }
 
     function onGetEndpoints(endpoints) {
-        // console.log(endpoints);
+        console.log('onGetEndpoints', endpoints);
     }
 
     function requestedInteractionHandler(settings) {
@@ -128,9 +127,6 @@ define(function (require) {
         payload['metaData'].isConfigured = true;
 
         // console.log('payload', JSON.stringify(payload));
-
-        var logUpdate = connection.trigger('updateActivity', payload);
-
-        console.log(logUpdate);
+        connection.trigger('updateActivity', payload);
     }
 });
