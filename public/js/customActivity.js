@@ -83,6 +83,7 @@ define(function (require) {
     }
 
     function initialize(data) {
+        console.log('initialize', data);
         if (data) {
             payload = data;
         }
