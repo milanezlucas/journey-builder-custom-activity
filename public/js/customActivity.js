@@ -121,7 +121,10 @@ define(function (require) {
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
-            "contactIdentifier": "{{Contact.Key}}"
+            "contactIdentifier": "{{Contact.Key}}",
+            "email": "{{Contact.email}}",
+            "nome": "{{Contact.nome}}",
+            "telefone": "{{Contact.telefone}}"
         }];
 
         payload['metaData'].isConfigured = true;
