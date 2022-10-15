@@ -83,12 +83,12 @@ define(function (require) {
     }
 
     function initialize(data) {
-        console.log('initialize', data);
         if (data) {
             payload = data;
         }
 
-        callMeOrigin = payload['arguments'].callMeOrigin;
+        // callMeOrigin = payload['arguments'].callMeOrigin;
+        callMeOrigin = payload['arguments'].execute.inArguments.callMeOrigin;
 
         if (callMeOrigin) {
             document.getElementById('callMeOrigin').disabled = true;
