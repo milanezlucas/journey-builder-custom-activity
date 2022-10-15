@@ -101,7 +101,7 @@ exports.execute = function (req, res) {
                 console.error(`ERROR send call me to ${phone}: ${err}`)
             })
 
-            res.send(200, 'Execute');
+            return res.send(200, 'Execute');
         } else {
             console.error('inArguments invalid.');
             return res.status(400).end();
@@ -118,5 +118,5 @@ exports.publish = function (req, res) {
 exports.validate = function (req, res) {
     console.log('validate request');
     // logData(req);
-    res.send(200, 'Validate');
+    return res.send(200, {'success': true});
 };
