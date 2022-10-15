@@ -125,8 +125,10 @@ define(function (require) {
 
         payload['metaData'].isConfigured = true;
 
-        console.log('payload', JSON.stringify(payload));
+        // console.log('payload', JSON.stringify(payload));
 
-        connection.trigger('updateActivity', payload);
+        var logUpdate = connection.trigger('updateActivity', payload);
+
+        console.log(logUpdate);
     }
 });
