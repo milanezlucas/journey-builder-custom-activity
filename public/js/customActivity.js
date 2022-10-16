@@ -121,7 +121,7 @@ define(function (require) {
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
-            // "contactIdentifier": "{{Contact.Key}}",
+            "contactIdentifier": "{{Contact.Key}}",
             "email": "{{Contact." + eventDefinitionKey + ".email}}"
             // "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
             // "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}"
