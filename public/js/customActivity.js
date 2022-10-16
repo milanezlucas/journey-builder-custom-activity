@@ -122,7 +122,7 @@ define(function (require) {
             "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
             // "contactIdentifier": "{{Contact.Key}}",
-            "email": "{{Contact." + eventDefinitionKey + ".email}}",
+            // "email": "{{Contact." + eventDefinitionKey + ".email}}",
             "nome": "{{Contact." + eventDefinitionKey + ".nome}}"
             // "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}"
         }];
