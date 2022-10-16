@@ -122,14 +122,14 @@ define(function (require) {
             "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
             "contactIdentifier": "{{Contact.Key}}",
-            "email": "{{Contact." + eventDefinitionKey + ".email}}"
-            // "nome": "{{Contact.nome}}",
-            // "telefone": "{{Contact.telefone}}"
+            "email": "{{Contact." + eventDefinitionKey + ".email}}",
+            "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
+            "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}"
         }];
 
         payload['metaData'].isConfigured = true;
 
-        console.log('payload', JSON.stringify(payload));
+        // console.log('payload', JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
     }
 });
