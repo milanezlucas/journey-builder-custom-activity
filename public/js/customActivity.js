@@ -121,10 +121,10 @@ define(function (require) {
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
-            "contactIdentifier": "{{Contact.Key}}"
+            "contactIdentifier": "{{Contact.Key}}",
+            "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}"
             // "email": "{{Contact." + eventDefinitionKey + ".email}}"
             // "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
-            // "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}"
         }];
 
         payload['metaData'].isConfigured = true;
