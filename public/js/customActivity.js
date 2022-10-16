@@ -122,7 +122,7 @@ define(function (require) {
             "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
             "contactIdentifier": "{{Contact.Key}}",
-            "email": "{{Contact.Attribute.tb_dn_teste_custom_activity.email}}",
+            "email": "{{Event." + eventDefinitionKey + ".email}}"
             // "nome": "{{Contact.nome}}",
             // "telefone": "{{Contact.telefone}}"
         }];
