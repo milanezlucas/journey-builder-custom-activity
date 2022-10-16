@@ -122,9 +122,9 @@ define(function (require) {
             "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
             "contactIdentifier": "{{Contact.Key}}",
-            "email": "{{Contact.email}}",
-            "nome": "{{Contact.nome}}",
-            "telefone": "{{Contact.telefone}}"
+            "email": "{{Contact.Attribute.tb_dn_teste_custom_activity.email}}",
+            // "nome": "{{Contact.nome}}",
+            // "telefone": "{{Contact.telefone}}"
         }];
 
         payload['metaData'].isConfigured = true;
