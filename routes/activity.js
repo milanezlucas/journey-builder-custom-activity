@@ -71,7 +71,7 @@ exports.execute = function (req, res) {
 
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
             var decodedArgs = decoded.inArguments[0];
-            console.log('inArguments', JSON.stringify(decoded.inArguments));
+            // console.log('inArguments', JSON.stringify(decoded.inArguments));
             console.log('decodedArgs', JSON.stringify(decodedArgs));
 
             const callme = decodedArgs['callMeOrigin'];
