@@ -110,6 +110,7 @@ define(function (require) {
 
     function requestedInteractionHandler(settings) {
         try {
+            console.log(settings);
             eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
             document.getElementById('select-entryevent-defkey').value = eventDefinitionKey;
         } catch (err) {
