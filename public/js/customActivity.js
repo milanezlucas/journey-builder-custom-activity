@@ -110,7 +110,6 @@ define(function (require) {
 
     function requestedInteractionHandler(settings) {
         try {
-            console.log(settings);
             eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
             document.getElementById('select-entryevent-defkey').value = eventDefinitionKey;
         } catch (err) {
@@ -123,9 +122,12 @@ define(function (require) {
             // "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
             // "contactIdentifier": "{{Contact.Key}}",
-            "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
-            "email": "{{Contact." + eventDefinitionKey + ".email}}",
-            "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}"
+            // "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
+            // "email": "{{Contact." + eventDefinitionKey + ".email}}",
+            // "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}"
+            "nome": "{{Contact.nome}}",
+            "email": "{{Contact.email}}",
+            "telefone": "{{Contact.telefone}}"
         }];
 
         payload['metaData'].isConfigured = true;
