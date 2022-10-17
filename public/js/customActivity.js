@@ -125,9 +125,6 @@ define(function (require) {
             // "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
             // "email": "{{Contact." + eventDefinitionKey + ".email}}",
             // "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}"
-            "nome": "{{Contact.nome}}",
-            "email": "{{Contact.email}}",
-            "telefone": "{{Contact.telefone}}"
         }];
 
         payload['metaData'].isConfigured = true;
