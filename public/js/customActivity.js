@@ -119,9 +119,9 @@ define(function (require) {
 
     function save() {
         payload['arguments'].execute.inArguments = [{
-            "tokens": authTokens,
+            // "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
-            "contactIdentifier": "{{Contact.Key}}",
+            // "contactIdentifier": "{{Contact.Key}}",
             "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
             "email": "{{Contact." + eventDefinitionKey + ".email}}",
             "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}"
