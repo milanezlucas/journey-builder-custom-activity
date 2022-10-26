@@ -74,7 +74,7 @@ exports.execute = function (req, res) {
             // console.log('inArguments', JSON.stringify(decoded.inArguments));
             console.log('decodedArgs', JSON.stringify(decodedArgs));
 
-            const callme = decodedArgs['callMeOrigin'];
+            /* const callme = decodedArgs['callMeOrigin'];
             const phone = decodedArgs['telefone'];
             const name = decodedArgs['nome'];
             const email = decodedArgs['email'];
@@ -99,7 +99,7 @@ exports.execute = function (req, res) {
                 console.log(`Success send call me to ${phone}`);
             }).catch((err) => {
                 console.error(`ERROR send call me to ${phone}: ${err}`)
-            })
+            }) */
 
             return res.send(200, 'Execute');
         } else {
