@@ -1,6 +1,6 @@
 {
   "workflowApiVersion": "1.1",
-  "key": "cfe26c59-0255-4a33-b36f-ef3d77dea770",
+  "key": "6590bdb5-a2a3-4a76-8ff1-fd37c5c5b16d",
   "metaData": {
     "icon": "images/whatsapp.png",
     "iconSmall": "images/whatsapp.png",
@@ -31,7 +31,7 @@
     }
   },
   "configurationArguments": {
-    "applicationExtensionKey": "cfe26c59-0255-4a33-b36f-ef3d77dea770",
+    "applicationExtensionKey": "6590bdb5-a2a3-4a76-8ff1-fd37c5c5b16d",
     "save": {
       "url": "https://journey-builder-callme.herokuapp.com/save",
       "verb": "POST",
