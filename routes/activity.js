@@ -120,3 +120,9 @@ exports.validate = function (req, res) {
     // logData(req);
     return res.send(200, {'success': true});
 };
+
+exports.stop = function (req, res) {
+    console.log('stop request');
+    // logData(req);
+    res.send(200, 'Stop');
+};
