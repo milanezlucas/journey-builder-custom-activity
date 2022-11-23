@@ -9,7 +9,6 @@ define(function (require) {
 
     var eventDefinitionKey = null;
     var callMeOrigin = null;
-    var deFields = [];
 
     $(window).ready(onRender);
 
@@ -114,26 +113,7 @@ define(function (require) {
             eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
             $('#select-entryevent-defkey').val(eventDefinitionKey);
 
-            console.log('Definition Key: ', eventDefinitionKey);
-
-            if (settings.triggers[0].type === 'SalesforceObjectTriggerV2' &&
-					settings.triggers[0].configurationArguments &&
-					settings.triggers[0].configurationArguments.eventDataConfig) {
-
-				// This workaround is necessary as Salesforce occasionally returns the eventDataConfig-object as string
-				if (typeof settings.triggers[0].configurationArguments.eventDataConfig === 'string' ||
-							!settings.triggers[0].configurationArguments.eventDataConfig.objects) {
-						settings.triggers[0].configurationArguments.eventDataConfig = JSON.parse(settings.triggers[0].configurationArguments.eventDataConfig);
-				}
-
-				settings.triggers[0].configurationArguments.eventDataConfig.objects.forEach((obj) => {
-					deFields = deFields.concat(obj.fields.map((fieldName) => {
-						return obj.dePrefix + fieldName;
-					}));
-				});
-
-				console.log('De Fields:', deFields);
-            }
+            console.log();
         } catch (err) {
             console.error(err);
         }
@@ -144,9 +124,9 @@ define(function (require) {
             // "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
             "contactIdentifier": "{{Contact.Key}}",
-            'nome': eventDefinitionKey,
-            "email": "teste@contaazul.com",
-            "telefone": "5514997761140"
+            'nome': '{{Event.' + eventDefinitionKey + '.nome}}',
+            "email": '{{Event.' + eventDefinitionKey + '.email}}',
+            "telefone": '{{Event.' + eventDefinitionKey + '.telefone}}'
             /* "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
             "email": "{{Contact." + eventDefinitionKey + ".email}}",
             "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}" */
