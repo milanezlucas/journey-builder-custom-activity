@@ -118,13 +118,14 @@ define(function (require) {
     }
 
     function save() {
+        console.log(eventDefinitionKey);
         payload['arguments'].execute.inArguments = [{
             // "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
             "contactIdentifier": "{{Contact.Key}}",
-            "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
+            /* "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
             "email": "{{Contact." + eventDefinitionKey + ".email}}",
-            "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}"
+            "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}" */
         }];
 
         payload['metaData'].isConfigured = true;
