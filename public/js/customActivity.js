@@ -112,8 +112,6 @@ define(function (require) {
         try {
             eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
             $('#select-entryevent-defkey').val(eventDefinitionKey);
-
-            console.log();
         } catch (err) {
             console.error(err);
         }
@@ -127,14 +125,11 @@ define(function (require) {
             'nome': '{{Event.' + eventDefinitionKey + '.nome}}',
             "email": '{{Event.' + eventDefinitionKey + '.email}}',
             "telefone": '{{Event.' + eventDefinitionKey + '.telefone}}'
-            /* "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
-            "email": "{{Contact." + eventDefinitionKey + ".email}}",
-            "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}" */
         }];
 
         payload['metaData'].isConfigured = true;
 
-        console.log('payload', JSON.stringify(payload));
+        // console.log('payload', JSON.stringify(payload));
         connection.trigger('updateActivity', payload);
     }
 });

@@ -72,7 +72,7 @@ exports.execute = function (req, res) {
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
             var decodedArgs = decoded.inArguments[0];
             // console.log('inArguments', JSON.stringify(decoded.inArguments));
-            console.log('decodedArgs', JSON.stringify(decodedArgs));
+            // console.log('decodedArgs', JSON.stringify(decodedArgs));
 
             const callme = decodedArgs['callMeOrigin'];
             const phone = decodedArgs['telefone'];
@@ -97,10 +97,8 @@ exports.execute = function (req, res) {
 
             axios.post('https://experimente.contaazul.com/webhook-callme/', post_save, { headers: headers }).then((res) => {
                 console.log(`Success send call me to ${phone}`);
-                console.log('res:', res);
             }).catch((err) => {
                 console.error(`ERROR send call me to ${phone}: ${err}`);
-                console.log('res:', res);
             })
 
             return res.send(200, 'Execute');
