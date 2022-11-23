@@ -9,6 +9,7 @@ define(function (require) {
 
     var eventDefinitionKey = null;
     var callMeOrigin = null;
+    var deFields = [];
 
     $(window).ready(onRender);
 
@@ -112,6 +113,27 @@ define(function (require) {
         try {
             eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
             $('#select-entryevent-defkey').val(eventDefinitionKey);
+
+            console.log('Definition Key: ', eventDefinitionKey);
+
+            if (settings.triggers[0].type === 'SalesforceObjectTriggerV2' &&
+					settings.triggers[0].configurationArguments &&
+					settings.triggers[0].configurationArguments.eventDataConfig) {
+
+				// This workaround is necessary as Salesforce occasionally returns the eventDataConfig-object as string
+				if (typeof settings.triggers[0].configurationArguments.eventDataConfig === 'string' ||
+							!settings.triggers[0].configurationArguments.eventDataConfig.objects) {
+						settings.triggers[0].configurationArguments.eventDataConfig = JSON.parse(settings.triggers[0].configurationArguments.eventDataConfig);
+				}
+
+				settings.triggers[0].configurationArguments.eventDataConfig.objects.forEach((obj) => {
+					deFields = deFields.concat(obj.fields.map((fieldName) => {
+						return obj.dePrefix + fieldName;
+					}));
+				});
+
+				console.log('De Fields:', deFields);
+            }
         } catch (err) {
             console.error(err);
         }
@@ -122,7 +144,7 @@ define(function (require) {
             // "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
             "contactIdentifier": "{{Contact.Key}}",
-            'nome': '{{Event.' + eventDefinitionKey + '.nome}}',
+            'nome': eventDefinitionKey,
             "email": "teste@contaazul.com",
             "telefone": "5514997761140"
             /* "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
