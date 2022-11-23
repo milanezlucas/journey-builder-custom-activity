@@ -118,11 +118,14 @@ define(function (require) {
     }
 
     function save() {
-        console.log(eventDefinitionKey);
+        console.log('Definition Key: ', eventDefinitionKey);
         payload['arguments'].execute.inArguments = [{
             // "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
             "contactIdentifier": "{{Contact.Key}}",
+            "nome": "{{Contact.nome}}",
+            "email": "{{Contact.email}}",
+            "telefone": "{{Contact.telefone}}"
             /* "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
             "email": "{{Contact." + eventDefinitionKey + ".email}}",
             "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}" */
