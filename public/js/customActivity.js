@@ -111,7 +111,7 @@ define(function (require) {
     function requestedInteractionHandler(settings) {
         try {
             eventDefinitionKey = settings.triggers[0].metaData.eventDefinitionKey;
-            document.getElementById('select-entryevent-defkey').value = eventDefinitionKey;
+            $('#select-entryevent-defkey').val(eventDefinitionKey);
         } catch (err) {
             console.error(err);
         }
@@ -122,9 +122,9 @@ define(function (require) {
             // "tokens": authTokens,
             "callMeOrigin": callMeOrigin,
             "contactIdentifier": "{{Contact.Key}}",
-            "nome": "Lucas",
-            "email": "lucas.mariano@contaazul.com",
-            "telefone": "5514997761142"
+            'nome': '{{Event.' + eventDefinitionKey + '.nome}}',
+            "email": "teste@contaazul.com",
+            "telefone": "5514997761140"
             /* "nome": "{{Contact." + eventDefinitionKey + ".nome}}",
             "email": "{{Contact." + eventDefinitionKey + ".email}}",
             "telefone": "{{Contact." + eventDefinitionKey + ".telefone}}" */
